@@ -1,0 +1,7 @@
+parameters:
+#    kuzstu_blog.example.class: Kuzstu\BlogBundle\Example
+
+services:
+   kuzstu_blog.crud_model:
+        class: Kuzstu\BlogBundle\Model\CrudOperationsModel
+        arguments: ['@doctrine.orm.entity_manager']

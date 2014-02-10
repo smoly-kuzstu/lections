@@ -1,0 +1,17 @@
+/www/bundles/
+/www/assetic/
+/www/uploads/
+/www/img/
+/www/js-vendor/
+/www/js/
+/www/css/
+/www/uploads/
+/app/bootstrap.php.cache
+/app/cache/
+/app/logs/
+/build/
+/vendor/
+/bin/
+/nbproject/
+/vendor/
+/docs/

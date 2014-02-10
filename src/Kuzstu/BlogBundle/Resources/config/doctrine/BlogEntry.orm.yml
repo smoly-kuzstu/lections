@@ -1,0 +1,25 @@
+Kuzstu\BlogBundle\Entity\BlogEntry:
+    type: entity
+    table: blog
+    fields:
+        id:
+           id: true
+           type: integer
+           unsigned: false
+           nullable: false
+           generator:
+               strategy: IDENTITY    
+        title:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        content:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        view_count:
+            type: integer
+            nullable: true   
+            

@@ -1,0 +1,4 @@
+kuzstu_blog:
+    resource: "@KuzstuBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+

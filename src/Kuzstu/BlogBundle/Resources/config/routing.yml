@@ -1,0 +1,4 @@
+kuzstu_blog:
+    resource: "@KuzstuBlogBundle/Controller/DefaultController.php"
+    type: annotation
+    prefix:   /blog

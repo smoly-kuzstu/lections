@@ -1,0 +1,10 @@
+{% extends 'KuzstuBlogBundle::layout.html.twig' %}
+
+{% block title item.title %}
+
+{% block content %}
+    <h1>{{item.title}}</h1>
+    <div>
+        {{item.content}}
+    </div>
+{% endblock %}
