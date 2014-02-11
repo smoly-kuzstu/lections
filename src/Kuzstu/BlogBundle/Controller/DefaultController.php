@@ -25,6 +25,7 @@ class DefaultController extends Controller
     
    /**
      * @Route("/viewitem/{id}", name="kuzstu_blog_view_item")
+     * @Method("GET")
      * @Template()
     */
     public function viewItemAction($id){
@@ -36,6 +37,7 @@ class DefaultController extends Controller
     
     /**
      * @Route("/add/{title}/{content}", name="kuzstu_blog_add_item")
+     * @Method("POST")
      * @Template()
     */
     public function addItemAction($title, $content){

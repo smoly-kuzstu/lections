@@ -4,7 +4,9 @@
   <ul>
     {% for blogEntry in items %}
         <li>
-            <a href="{{ path('kuzstu_blog_view_item', { 'id': blogEntry.id}) }}">{{blogEntry.title}}</a>
+            <a href="{{ path('kuzstu_blog_view_item', { 'id': blogEntry.id}) }}">
+                {{blogEntry.title}}
+            </a>
         </li>
     {% endfor %}
   </ul>
