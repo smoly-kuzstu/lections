@@ -36,24 +36,4 @@ class DefaultController extends Controller
         );
     }
     
-    /**
-     * @Route("/add/{title}/{content}", name="kuzstu_blog_add_item")
-     * @Method("POST")
-     * @Template()
-    */
-    public function addItemAction($title, $content){
-        $model = $this->container->get('kuzstu_blog.crud_model');
-        $model->createItem($title, $content);
-    }
-    
-     /**
-     * @Route("/add-comment/{id}/{content}", name="kuzstu_blog_add_item")
-     * @Method("GET")
-     * 
-    */
-    public function addCommentAction($id, $content){
-        $model = $this->container->get('kuzstu_blog.crud_model');
-        $model->addComment($id, $content);
-        return new Response('Comment was added!', 200);
-    }
 }

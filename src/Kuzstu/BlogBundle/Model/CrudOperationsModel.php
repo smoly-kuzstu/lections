@@ -29,7 +29,7 @@ class CrudOperationsModel extends BaseModel
     }
     
     /**
-     * This function create a new entry in a blog
+     * This function add comment to entry of a blog
      * @param string $title Title of entry
      * @param string $content Text of blog entry
     */   
@@ -44,8 +44,7 @@ class CrudOperationsModel extends BaseModel
         $commentEntity->setCommentText($content);
 
         $entry->addComment($commentEntity);
-        
-        
+
         $this->entityManager->persist($entry);
         $this->entityManager->flush();
     }
@@ -58,10 +57,16 @@ class CrudOperationsModel extends BaseModel
        $queryBuilder = $this->entityManager->createQueryBuilder()
                           ->select('blog')
                           ->from('KuzstuBlogBundle:BlogEntry', 'blog')
-                          ->join('blog.comment', 'comment');
+                          ->leftJoin('blog.comment', 'comment')
+                          ->where('blog.id = :entry_id')
+                          ->setParameter('entry_id', $id);
 
-       $result = $queryBuilder->getQuery()
-                              ->getSingleResult();
+       try{
+           $result = $queryBuilder->getQuery()
+                                  ->getSingleResult(); 
+       } catch(\Exception $e){
+           //Should be some or log or something else
+       }
        
        return $result;
     }

@@ -2,3 +2,8 @@ kuzstu_blog:
     resource: "@KuzstuBlogBundle/Controller/DefaultController.php"
     type: annotation
     prefix:   /blog
+    
+kuzstu_blog_backend:
+    resource: "@KuzstuBlogBundle/Controller/BackendController.php"
+    type: annotation
+    prefix:   /blog/backend    
