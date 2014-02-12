@@ -23,3 +23,9 @@ Kuzstu\BlogBundle\Entity\BlogEntry:
             type: integer
             nullable: true   
             
+    oneToMany:
+       comment:
+         targetEntity: Kuzstu\BlogBundle\Entity\Comment
+         mappedBy: blogentry
+         cascade: ["remove", "persist"]        
+            

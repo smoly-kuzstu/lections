@@ -1,0 +1,24 @@
+Kuzstu\BlogBundle\Entity\Comment:
+    type: entity
+    table: blog__comments
+    fields:
+        id:
+           id: true
+           type: integer
+           unsigned: false
+           nullable: false
+           generator:
+               strategy: IDENTITY    
+        comment_text:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            
+    manyToOne:
+       blogentry:
+         targetEntity: Kuzstu\BlogBundle\Entity\BlogEntry
+         inversedBy: comment
+         joinColumn:
+            name: blog_entry_id
+            referencedColumnName: id          

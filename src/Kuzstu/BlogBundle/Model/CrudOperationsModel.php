@@ -29,13 +29,41 @@ class CrudOperationsModel extends BaseModel
     }
     
     /**
+     * This function create a new entry in a blog
+     * @param string $title Title of entry
+     * @param string $content Text of blog entry
+    */   
+    
+    public function addComment($id, $content){
+         /**
+         * @var Entity\BlogEntry
+         */
+        $entry = $this->entityManager->find('KuzstuBlogBundle:BlogEntry', $id);
+        
+        $commentEntity = new Entity\Comment();
+        $commentEntity->setCommentText($content);
+
+        $entry->addComment($commentEntity);
+        
+        
+        $this->entityManager->persist($entry);
+        $this->entityManager->flush();
+    }
+    /**
      * Get a blog entry by it's number
      * @return Entity\BlogEntry Return blog entry by it's id
      * @param int $id Identificator of blog entry
     */
     public function readItem($id){
-        $item = $this->entityManager->find('KuzstuBlogBundle:BlogEntry', $id);
-        return $item;
+       $queryBuilder = $this->entityManager->createQueryBuilder()
+                          ->select('blog')
+                          ->from('KuzstuBlogBundle:BlogEntry', 'blog')
+                          ->join('blog.comment', 'comment');
+
+       $result = $queryBuilder->getQuery()
+                              ->getSingleResult();
+       
+       return $result;
     }
     
     /**

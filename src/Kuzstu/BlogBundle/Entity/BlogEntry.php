@@ -108,4 +108,67 @@ class BlogEntry
     {
         return $this->view_count;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $order_positions;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->order_positions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+   
+    /**
+     * Get order_positions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrderPositions()
+    {
+        return $this->order_positions;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $comment;
+
+
+    /**
+     * Add comment
+     *
+     * @param \Kuzstu\BlogBundle\Entity\Comment $comment
+     * @return BlogEntry
+     */
+    public function addComment(\Kuzstu\BlogBundle\Entity\Comment $comment)
+    {
+        //This Line was added manualy to set a entry
+        $comment->setBlogentry($this);
+        $this->comment[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Kuzstu\BlogBundle\Entity\Comment $comment
+     */
+    public function removeComment(\Kuzstu\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
 }
