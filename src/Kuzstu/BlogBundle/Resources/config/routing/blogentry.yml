@@ -1,0 +1,10 @@
+blogentry:
+    pattern:  /
+    defaults: { _controller: "KuzstuBlogBundle:BlogEntry:index" }
+
+blogentry_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "KuzstuBlogBundle:BlogEntry:show" }
+
+
+
