@@ -1,5 +1,5 @@
-*.md
-README
-LICENSE
-composer.json
-composer.lock
+/*.md
+/README
+/LICENSE
+/composer.json
+/composer.lock
